@@ -2,12 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Luis Solis Portfolio - Minimalist Dark Design System
-   Inspired by Pablo Sanchez's aesthetic
-   All colors MUST be HSL.
-*/
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* Zalando Sans Expanded - Local Files */
+@font-face {
+  font-family: 'Zalando Sans Expanded';
+  src: url('/fonts/ZRegular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Zalando Sans Expanded';
+  src: url('/fonts/ZMedium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Zalando Sans Expanded';
+  src: url('/fonts/ZSemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Zalando Sans Expanded';
+  src: url('/fonts/ZBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Zalando Sans Expanded';
+  src: url('/fonts/ZExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Sedgwick - Product Management subtitle only */
+@font-face {
+  font-family: 'Sedgwick';
+  src: url('/fonts/Sedgwick.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 @layer base {
   :root {
@@ -15,48 +64,61 @@
     --background: 0 0% 10%;
     --foreground: 0 0% 98%;
 
+
     --card: 0 0% 12%;
     --card-foreground: 0 0% 98%;
 
+
     --popover: 0 0% 14%;
     --popover-foreground: 0 0% 98%;
+
 
     /* Primary - Electric Blue for software */
     --primary: 211 78% 39%;
     --primary-foreground: 0 0% 98%;
 
+
     /* Secondary - Deep Green for sustainability */
     --secondary: 120 54% 24%;
     --secondary-foreground: 0 0% 98%;
+
 
     /* Accent - Purple for AI */
     --accent: 282 66% 35%;
     --accent-foreground: 0 0% 98%;
 
+
     --muted: 0 0% 16%;
     --muted-foreground: 0 0% 65%;
 
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
+
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
     --ring: 211 78% 39%;
 
+
     --radius: 0.5rem;
+
 
     /* Category accent colors */
     --sustainability: 120 54% 24%;
     --software: 211 78% 39%;
     --ai: 282 66% 35%;
-    
+
+
     /* Education section background */
     --education-bg: 0 52% 35%;
-    
+
+
     /* Glow effects */
     --glow-primary: 211 78% 39%;
     --glow-sustainability: 120 54% 24%;
     --glow-ai: 282 66% 35%;
+
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -66,77 +128,108 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+
+    /* Zalando Sans Expanded everywhere */
+    --font-sans: 'Zalando Sans Expanded', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Zalando Sans Expanded', ui-serif, Georgia, serif;
+    --font-mono: 'Zalando Sans Expanded', ui-monospace, monospace;
   }
 }
+
 
 @layer base {
   * {
     @apply border-border;
   }
 
+
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
+    font-weight: 500; /* Default to Medium (ZMedium.woff2) */
   }
+
 
   html {
     scroll-behavior: smooth;
   }
+
+
+  /* All headings use Zalando Medium */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 500; /* Medium weight */
+  }
 }
+
 
 @layer components {
   .section-viewport {
     @apply min-h-screen w-full relative;
   }
 
+
   .nav-dot {
     @apply w-2 h-2 rounded-full transition-all duration-300;
   }
+
 
   .nav-dot-active {
     @apply bg-foreground shadow-[0_0_10px_rgba(255,255,255,0.5)];
   }
 
+
   .nav-dot-inactive {
     @apply bg-muted-foreground/40 hover:bg-muted-foreground/70;
   }
+
 
   .glow-sustainability {
     box-shadow: 0 0 20px hsl(var(--sustainability) / 0.3);
   }
 
+
   .glow-software {
     box-shadow: 0 0 20px hsl(var(--software) / 0.3);
   }
+
 
   .glow-ai {
     box-shadow: 0 0 20px hsl(var(--ai) / 0.3);
   }
 
+
   .project-card {
     @apply transition-all duration-300 cursor-pointer;
   }
+
 
   .project-card:hover {
     @apply scale-[1.02];
   }
 
+
   .education-block {
     @apply transition-all duration-300 cursor-pointer border border-border/30;
   }
 
+
   .education-block:hover {
     @apply border-foreground/40 bg-foreground/5;
   }
+
 
   /* Scroll snap for sections */
   .snap-container {
     scroll-snap-type: y mandatory;
   }
 
+
   .snap-section {
     scroll-snap-align: start;
   }
+
 
   /* Hide scrollbar but allow scrolling */
   .hide-scrollbar {
@@ -144,7 +237,28 @@
     scrollbar-width: none;
   }
 
+
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
 }
+
+
+/* Bricolage Grotesque (optional, if needed elsewhere) 
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/fonts/Bricolage_Grotesque/BricolageGrotesque-SpaceGrok-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/fonts/Bricolage_Grotesque/BricolageGrotesque-SpaceGrok-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*/

@@ -80,10 +80,10 @@
                onClick={() => setSelectedItem(item)}
                className="education-block p-6 md:p-8 text-left h-full min-h-[200px] flex flex-col"
              >
-               <p className="text-sm text-muted-foreground font-light mb-2">{item.institution}</p>
+               <p className="text-sm text-muted-foreground font-inter font-light mb-2">{item.institution}</p>
                <h3 className="text-lg md:text-xl font-medium text-foreground mb-3">{item.program}</h3>
-               <p className="text-sm text-muted-foreground font-light flex-1">{item.subtitle}</p>
-               <p className="text-xs text-muted-foreground/60 mt-4 italic">Click to learn more</p>
+               <p className="text-sm text-muted-foreground font-inter font-light flex-1">{item.subtitle}</p>
+               <p className="text-xs text-muted-foreground/60 mt-4 italic font-inter font-light">Click to learn more</p>
              </motion.button>
            ))}
          </div>
@@ -112,14 +112,14 @@
                >
                  <X className="w-5 h-5" />
                </button>
-               <p className="text-sm text-muted-foreground font-light mb-2">{selectedItem.institution}</p>
+               <p className="text-sm text-muted-foreground font-inter font-light mb-2">{selectedItem.institution}</p>
                <h3 className="text-xl font-medium text-foreground mb-3">{selectedItem.program}</h3>
-               <p className="text-sm text-muted-foreground font-light mb-6">{selectedItem.subtitle}</p>
+               <p className="text-sm text-muted-foreground font-inter font-light mb-6">{selectedItem.subtitle}</p>
                <ul className="space-y-3">
                  {selectedItem.details.map((detail, index) => (
                    <li key={index} className="flex items-start gap-3">
                      <span className="w-1.5 h-1.5 rounded-full bg-education mt-2 flex-shrink-0" />
-                     <span className="text-sm text-foreground/80 font-light">{detail}</span>
+                     <span className="text-sm text-foreground/80 font-inter font-light">{detail}</span>
                    </li>
                  ))}
                </ul>

@@ -1,6 +1,16 @@
  import { useState, useRef } from 'react';
  import { motion, AnimatePresence } from 'framer-motion';
  import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+ import penguinsImage from '@/assets/projects/icebreaker.png';
+ import chopinaiImage from '@/assets/projects/chopinai.png';
+ import mccImage from '@/assets/projects/mcc.jpg';
+ import BritelineImage from '@/assets/projects/briteline5.png';
+ import movsusImage from '@/assets/projects/movsus.png';
+ import mintlyImage from '@/assets/projects/mintly3.png';
+ import reechImage from '@/assets/projects/REECH8.png';
+ import pyrolisisImage from '@/assets/projects/pyrolisis3.png';
+
+
  
  type ProjectCategory = 'sustainability' | 'software' | 'ai';
  
@@ -10,6 +20,8 @@
    title: string;
    description: string;
    skills: string[];
+   images?: string[];
+   files?: { name: string; url: string }[];
    details: {
      problem: string;
      role: string;
@@ -19,12 +31,15 @@
  }
  
  const projects: Project[] = [
+   
+  /*Penguins ML Model*/
    {
      id: 'ml-hockey',
      category: 'ai',
      title: 'ML to Predict Hockey Stars',
      description: 'Owned end-to-end ML product development predicting youth hockey potential for the Pitt Penguins.',
-     skills: ['Product Management', 'Machine Learning', 'Product Development'],
+     skills: ['Machine Learning', 'Product Management', 'Data Science'],
+     images: [penguinsImage],
      details: {
        problem: 'The Pittsburgh Penguins needed a data-driven approach to identify promising youth players earlier in their development.',
        role: 'Product Manager leading a cross-functional team of data scientists and sports analysts.',
@@ -37,12 +52,15 @@
        impact: 'Improved scouting efficiency by 40% and identified 3 players now in development pipeline.',
      },
    },
+   
+   /*Chopin AI*/
    {
      id: 'chopin-ai',
      category: 'ai',
      title: 'Chopin AI',
      description: 'Gesture-driven AI model designed to generate real-time music with hand movement.',
-     skills: ['Artificial Intelligence', 'Computer Vision'],
+     skills: ['Artificial Intelligence', 'Computer Vision', 'Human-AI Interaction'],
+     images: [chopinaiImage],
      details: {
        problem: 'Traditional music interfaces limit expressiveness. Can we create music through natural gesture?',
        role: 'Technical Product Manager and AI Developer.',
@@ -55,12 +73,15 @@
        impact: 'Created novel instrument performed at 2 live events. Published research paper.',
      },
    },
+   
+   /*MCC*/
    {
      id: 'saas-workflow',
      category: 'software',
      title: 'SaaS Workflow Automation',
      description: 'Led US/India teams deploying Salesforce, SAP, and Monday.com across 130+ global sites.',
-     skills: ['Product Management', 'SaaS', 'Agile'],
+     skills: ['Product Management', 'SaaS', 'Agile', 'Cross-functional Leadership'],
+     images:[mccImage],
      details: {
        problem: 'Enterprise needed unified workflow tools across global manufacturing sites.',
        role: 'Senior Product Manager leading distributed teams.',
@@ -73,12 +94,15 @@
        impact: 'Reduced operational overhead by 35%. Achieved 95% user adoption within 6 months.',
      },
    },
+   
+   /*Briteline*/
    {
      id: 'second-startup',
      category: 'software',
      title: 'My Second Startup',
      description: 'SaaS, workflow automation, and analytics projects for 10+ SMB clients.',
-     skills: ['SaaS', 'Consulting', 'Product Development'],
+     skills: ['SaaS', 'Digital Transformation', 'Consulting', 'Data Analytics'],
+     images: [BritelineImage],
      details: {
        problem: 'Small businesses struggle with fragmented tools and manual processes.',
        role: 'Co-founder and Head of Product.',
@@ -91,12 +115,15 @@
        impact: 'Grew to $50K ARR. Clients reported 25% time savings on average.',
      },
    },
+   
+   /*Mintlypro*/
    {
      id: 'industrial-software',
      category: 'software',
      title: 'Industrial Software Automation',
      description: 'Led 0 to 1 product development of two SaaS products for industrial applications.',
-     skills: ['Product Management', 'SaaS', 'Portfolio Management'],
+     skills: ['Product Management', 'SaaS', 'Product Development'],
+     images: [mintlyImage],
      details: {
        problem: 'Industrial manufacturers lacked modern software for equipment monitoring.',
        role: 'Product Lead for industrial IoT software suite.',
@@ -109,12 +136,15 @@
        impact: 'Launched 2 products adopted by 15 manufacturing sites.',
      },
    },
+   
+   /*MovSus*/
    {
      id: 'electric-mobility',
      category: 'sustainability',
      title: 'Electric Mobility',
      description: 'Led the design of a hybrid vehicle conversion kit for reefer trucks.',
-     skills: ['Product Management', 'Renewable Energies', 'E-Mobility'],
+     skills: ['Technical Project Management', 'Renewable Energies', 'E-Mobility'],
+     images: [movsusImage],
      details: {
        problem: 'Refrigerated trucks are major polluters. Electric conversion can reduce emissions significantly.',
        role: 'Product Manager for e-mobility conversion kit.',
@@ -127,12 +157,15 @@
        impact: 'Prototype reduced fuel consumption by 30%. Secured pilot contract with logistics company.',
      },
    },
+   
+   /*Reech*/
    {
      id: 'renewable-innovation',
      category: 'sustainability',
-     title: 'Renewable Energies & Innovation',
-     description: 'Led the design of innovative wind and solar energy systems.',
-     skills: ['Project Management', 'Systems Design', 'Renewable Energies'],
+     title: 'Renewable Energy Innovation',
+     description: 'Led the technical design of innovative wind and solar energy systems for social imapct.',
+     skills: ['Technical Project Management', 'Systems Design', 'Renewable Energies'],
+     images: [reechImage],
      details: {
        problem: 'Rural communities need affordable, reliable renewable energy solutions.',
        role: 'Innovation Project Lead at TH Ingolstadt.',
@@ -145,12 +178,15 @@
        impact: 'System achieved 40% cost reduction vs. traditional installations.',
      },
    },
+   
+   /*Pyrolisis*/
    {
      id: 'biofuels',
      category: 'sustainability',
      title: 'Sustainable Biofuels',
-     description: 'Managed the development of biofuels using waste materials (paper, avocado seeds).',
-     skills: ['Project Management', 'Renewable Energies', 'Biotechnology'],
+     description: 'Oversaw the development of projects generating biofuels from waste (paper, avocado seeds).',
+     skills: ['Technical Project Management', 'Renewable Energies', 'Biotechnology'],
+     images: [pyrolisisImage],
      details: {
        problem: 'Agricultural waste creates pollution. Can it become renewable fuel instead?',
        role: 'Project Manager for biofuel research initiative.',
@@ -204,29 +240,29 @@
          <h2 className="text-2xl md:text-3xl font-semibold text-foreground">Selected Projects</h2>
          <p className="text-muted-foreground font-light mt-2">Tech innovation with purpose.</p>
        </motion.div>
- 
+
        {/* Legend */}
-       <motion.div
-         initial={{ opacity: 0 }}
-         whileInView={{ opacity: 1 }}
-         viewport={{ once: true }}
-         transition={{ duration: 0.6, delay: 0.2 }}
-         className="flex flex-wrap gap-6 mb-8"
-       >
-         <div className="flex items-center gap-2">
-           <div className="w-3 h-3 rounded-sm bg-sustainability" />
-           <span className="text-xs text-muted-foreground">Sustainability</span>
-         </div>
-         <div className="flex items-center gap-2">
-           <div className="w-3 h-3 rounded-sm bg-software" />
-           <span className="text-xs text-muted-foreground">Software</span>
-         </div>
-         <div className="flex items-center gap-2">
-           <div className="w-3 h-3 rounded-sm bg-ai" />
-           <span className="text-xs text-muted-foreground">AI</span>
-         </div>
-       </motion.div>
- 
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-wrap gap-6 mb-8"
+        >
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-0.5 bg-ai" />
+            <span className="text-xs text-muted-foreground">AI</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-0.5 bg-software" />
+            <span className="text-xs text-muted-foreground">Software</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-0.5 bg-sustainability" />
+            <span className="text-xs text-muted-foreground">Sustainability</span>
+          </div>
+        </motion.div>
+        
        {/* Carousel Container */}
        <div className="flex-1 flex items-center relative">
          {/* Navigation Buttons */}
@@ -256,35 +292,57 @@
                viewport={{ once: true }}
                transition={{ duration: 0.5, delay: index * 0.1 }}
                onClick={() => setSelectedProject(project)}
-               className={`project-card flex-shrink-0 w-[80vw] md:w-[50vw] lg:w-[35vw] snap-center bg-card border border-border rounded-lg overflow-hidden hover:${categoryColors[project.category].glow}`}
+               className={`project-card flex-shrink-0 w-72 md:w-80 h-[28rem] md:h-[32rem] snap-center bg-card border border-border rounded-lg overflow-hidden hover:${categoryColors[project.category].glow} flex flex-col`}
              >
                {/* Category Bar */}
-               <div className={`h-1 ${categoryColors[project.category].bg}`} />
-               
-               <div className="p-6">
-                 <span className={`text-xs font-medium ${categoryColors[project.category].text} uppercase tracking-wider`}>
-                   {categoryLabels[project.category]}
-                 </span>
-                 <h3 className="text-lg font-medium text-foreground mt-2 mb-3">{project.title}</h3>
-                 <p className="text-sm text-muted-foreground font-light mb-4 line-clamp-3">
-                   {project.description}
-                 </p>
-                 <div className="flex flex-wrap gap-2">
-                   {project.skills.map((skill) => (
-                     <span
-                       key={skill}
-                       className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground"
-                     >
-                       {skill}
-                     </span>
-                   ))}
-                 </div>
-               </div>
-             </motion.div>
-           ))}
-         </div>
-       </div>
- 
+                <div className={`h-1 ${categoryColors[project.category].bg}`} />
+
+                <div className="p-6 flex-1 flex flex-col">
+                  <div>
+                    <span className={`text-xs font-medium ${categoryColors[project.category].text} uppercase tracking-wider font-inter`}>
+                      {categoryLabels[project.category]}
+                    </span>
+                    <h3 className="text-lg font-medium text-foreground mt-2 mb-3">{project.title}</h3>
+                    <p className="text-sm text-muted-foreground font-inter font-light mb-4 line-clamp-4">
+                      {project.description}
+                    </p>
+                    
+                    {/* Image Preview */}
+                    {project.images && project.images.length > 0 && (
+                      <div className="flex-1 flex items-center justify-center my-4">
+                        <div className="w-full rounded-lg overflow-hidden border border-border/30 bg-muted/20">
+                          <img
+                            src={project.images[0]}
+                            alt={`${project.title} preview`}
+                            className="w-full h-44 object-cover"
+                          />
+                        </div>
+                      </div>
+                    )}
+
+                    
+
+
+
+                  </div>
+                  
+                  <div className="mt-auto flex flex-wrap gap-2">
+                    {project.skills.map((skill) => (
+                      <span key={skill} className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground font-inter font-light">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                
+                </div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+
+    
+
+
        {/* Modal */}
        <AnimatePresence>
          {selectedProject && (

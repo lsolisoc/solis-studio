@@ -1,5 +1,21 @@
  import { motion } from 'framer-motion';
  import { Play, ExternalLink } from 'lucide-react';
+ import wshImage from '@/assets/wsh.jpg';
+ import qnImage from '@/assets/qn.jpg';
+ import tameImage from '@/assets/tame.jpg';
+ import mazImage from '@/assets/maz.jpg';
+ import bosImage from '@/assets/bos.jpg';
+ import planeImage from '@/assets/plane.jpg';
+ import drinkImage from '@/assets/drink.jpg';
+ import mtyImage from '@/assets/mty.jpg';
+ import chopinImage from '@/assets/chopinai2.png';
+ import coldplayVideo from '@/assets/coldplay.mp4';
+ import jungleVideo from '@/assets/jungle.mp4';
+ import aliciaVideo from '@/assets/alicia.mp4'
+ import museumimage from '@/assets/museum.jpg'
+ import fireworksVideo from '@/assets/fireworks.mp4'
+ import romeimage from '@/assets/rome.jpg'
+
  
  interface MusicItem {
    id: string;
@@ -7,21 +23,29 @@
    title: string;
    caption?: string;
    aspectRatio: 'square' | 'portrait' | 'landscape';
+   image?: string;
+   video?: string;
  }
  
+ /** order Col1: 1→4→7→9→12
+           Col2: 2→5→6→8→10→11 */
+
  const musicItems: MusicItem[] = [
-   { id: '1', type: 'project', title: 'Gesture-Controlled Pianist', caption: 'AI music performance', aspectRatio: 'landscape' },
-   { id: '2', type: 'image', title: 'Live Set – Pittsburgh', aspectRatio: 'portrait' },
-   { id: '3', type: 'video', title: 'Studio Session', aspectRatio: 'square' },
-   { id: '4', type: 'image', title: 'Synthesizer Experiments', aspectRatio: 'landscape' },
-   { id: '5', type: 'project', title: 'Chopin AI Demo', caption: 'Real-time gesture music', aspectRatio: 'square' },
-   { id: '6', type: 'image', title: 'Concert Photography', aspectRatio: 'portrait' },
-   { id: '7', type: 'video', title: 'Beat Production', aspectRatio: 'landscape' },
-   { id: '8', type: 'image', title: 'Audio Visual Installation', aspectRatio: 'square' },
-   { id: '9', type: 'project', title: 'Neural Beat Generator', caption: 'ML-driven rhythms', aspectRatio: 'portrait' },
-   { id: '10', type: 'image', title: 'Modular Setup', aspectRatio: 'landscape' },
-   { id: '11', type: 'video', title: 'Live Performance', aspectRatio: 'square' },
-   { id: '12', type: 'image', title: 'Soundscape Design', aspectRatio: 'portrait' },
+   { id: '1', type: 'image', title: 'Carnegie Mellon University', aspectRatio: 'landscape', image: qnImage },
+   { id: '2', type: 'image', title: 'Washington DC', aspectRatio: 'portrait', image: wshImage },
+   { id: '3', type: 'video', title: 'Coldplay', aspectRatio: 'square', video: coldplayVideo},
+   { id: '4', type: 'image', title: 'Chicago, IL', aspectRatio: 'landscape', image: planeImage },
+   { id: '5', type: 'video', title: 'Jungle', aspectRatio: 'portrait', video: jungleVideo },
+   { id: '6', type: 'image', title: 'Rome, Italy', aspectRatio: 'portrait', image: romeimage },
+   { id: '13', type: 'video', title: '4th of July', aspectRatio: 'portrait', video: fireworksVideo },
+   { id: '7', type: 'image', title: 'Tame Impala', aspectRatio: 'portrait', image: tameImage },
+   { id: '8', type: 'image', title: 'Boston International Airport', aspectRatio: 'square', image: bosImage },
+   { id: '9', type: 'image', title: 'Monterrey, NL', aspectRatio: 'portrait', image: mtyImage },
+   { id: '10', type: 'image', title: 'Mazatlan, MX', aspectRatio: 'landscape', image: mazImage },
+   { id: '11', type: 'video', title: 'Alicia Keys', aspectRatio: 'portrait', video: aliciaVideo },
+   { id: '12', type: 'image', title: 'Carnegie Museum of Art', aspectRatio: 'portrait', image: museumimage },
+   { id: '14', type: 'image', title: 'Pittsburgh, PA', aspectRatio: 'square', image: drinkImage },
+   
  ];
  
  const getAspectClass = (ratio: string) => {
@@ -44,7 +68,7 @@
          whileInView={{ opacity: 1, x: 0 }}
          viewport={{ once: true }}
          transition={{ duration: 0.6 }}
-         className="w-full md:w-64 lg:w-72 flex-shrink-0 p-8 md:p-12 md:sticky md:top-0 md:h-screen flex flex-col"
+         className="w-full md:w-80 lg:w-96 flex-shrink-0 p-8 md:p-12 md:sticky md:top-0 md:h-screen flex flex-col"
        >
          <h2 className="text-2xl md:text-3xl font-semibold text-foreground">Music & Arts</h2>
          <p className="text-muted-foreground font-light mt-2 mb-8">
@@ -86,13 +110,32 @@
                transition={{ duration: 0.5, delay: index * 0.05 }}
                className={`break-inside-avoid group relative overflow-hidden rounded-lg bg-muted ${getAspectClass(item.aspectRatio)} cursor-pointer`}
              >
-               {/* Placeholder gradient background */}
-               <div 
-                 className="absolute inset-0 bg-gradient-to-br from-muted via-card to-muted"
-                 style={{
-                   backgroundImage: `linear-gradient(${45 + index * 30}deg, hsl(var(--muted)), hsl(var(--card)), hsl(var(--muted)))`,
-                 }}
-               />
+               {/* Media background: video or image */}
+              {item.type === 'video' && item.video ? (
+                <video
+                  src={item.video}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  muted
+                  loop
+                  playsInline
+                  autoPlay
+                />
+              ) : item.image ? (
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              ) : (
+                <div
+                  className="absolute inset-0 bg-gradient-to-br from-muted via-card to-muted"
+                  style={{
+                    backgroundImage: `linear-gradient(${45 + index * 30}deg, hsl(var(--muted)), hsl(var(--card)), hsl(var(--muted)))`,
+                  }}
+                />
+              )}
+
+
                
                {/* Overlay on hover */}
                <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

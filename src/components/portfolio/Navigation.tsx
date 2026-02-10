@@ -44,7 +44,7 @@
          <motion.button
            key={section.id}
            onClick={() => scrollToSection(section.id)}
-           className="flex items-center gap-3 group"
+           className="flex items-center group"
            whileHover={{ x: -4 }}
            transition={{ duration: 0.2 }}
          >
@@ -54,14 +54,17 @@
                  ? 'text-foreground opacity-100'
                  : 'text-muted-foreground opacity-0 group-hover:opacity-100'
              }`}
+
+             /*className={`text-xs font-light tracking-wider uppercase transition-all duration-300 ${
+              activeSection === section.id
+              ? 'text-foreground font-semibold'
+              : 'text-muted-foreground/70 hover:text-muted-foreground'
+            }`}*/
+
            >
              {section.label}
            </span>
-           <div
-             className={`nav-dot ${
-               activeSection === section.id ? 'nav-dot-active' : 'nav-dot-inactive'
-             }`}
-           />
+           
          </motion.button>
        ))}
      </nav>
