@@ -24,7 +24,7 @@ export const HeroSection = () => {
             Luis Solis
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl font-medium text-muted-foreground mt-1 font-sedgwick">
-            Product Management & AI
+            Technical Product Management & AI
           </p>
         </motion.div>
       </div>

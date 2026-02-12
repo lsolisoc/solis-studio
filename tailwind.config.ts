@@ -55,7 +55,7 @@ export default {
         sustainability: "hsl(var(--sustainability))",
         software: "hsl(var(--software))",
         ai: "hsl(var(--ai))",
-        education: "hsl(var(--education-bg))",
+        education: "hsl(0 52% 41%)", /* old used to be "hsl(var(--education-bg))" */
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
