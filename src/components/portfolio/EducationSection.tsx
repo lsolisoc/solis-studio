@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import tecLogo from '@/assets/logos/tecmty.png';
-import cmuLogo from '@/assets/logos/cmu.png';
+import cmuLogo from '@/assets/logos/cmu8.png';
 import thiLogo from '@/assets/logos/thifin.png';
 
 interface EducationItem {
@@ -24,7 +24,7 @@ const educationData: EducationItem[] = [
     id: 'cmu',
     institution: 'Carnegie Mellon University',
     program: 'M.S. Engineering & Technology Innovation Management',
-    subtitle: 'Graduate studies in product development, artificial intelligence, and innovative technology strategy',
+    subtitle: 'Graduate studies in product development, artificial intelligence, and technology strategy for engineering innovation.',
     logo: cmuLogo,
     details: {
       overview: 'Advanced graduate program focusing on product development, technology strategy, artificial intelligence to build innovative products that are customer centric.',
@@ -42,7 +42,7 @@ const educationData: EducationItem[] = [
     id: 'tec',
     institution: 'Tec de Monterrey',
     program: 'Sustainable Development Engineering',
-    subtitle: 'BSc specialized in renewable energy systems, product development, sustainable technologies, and entrepreneurship',
+    subtitle: 'BSc specialized in renewable energy systems, product development, sustainable technologies, and entrepreneurship.',
     logo: tecLogo,
     details: {
       overview: 'Engineering program focused on creating sustainable technology solutions through circular economy principles and clean technology innovation.',
@@ -71,7 +71,7 @@ const educationData: EducationItem[] = [
         'Energy efficiency optimization projects',
       ],
       Selectedcoursework: 'Solar Energy Systems, Wind Power Engineering, Battery Storage Technology, Smart Grid Integration, Technical Project Management, Power Systems Analysis',
-      skills: ['Energy Systems', 'Technical PM', 'Systems Integration', 'Research & Development'],
+      skills: ['Energy Systems', 'Technical PM', 'Systems Integration', 'Research & Development.'],
     },
   },
 ];
@@ -90,7 +90,7 @@ export const EducationSection = () => {
       >
         <h2 className="text-2xl md:text-3xl font-semibold text-foreground">Education</h2>
         <p className="text-muted-foreground font-light mt-2">
-          Engineering, Software, and Artificial Intelligence with a foundation in Sustainable Development.
+          Engineering, Software, and Artificial Intelligence with a foundation in Sustainable Development
         </p>
       </motion.div>
 

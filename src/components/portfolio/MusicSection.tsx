@@ -72,7 +72,7 @@
        >
          <h2 className="text-2xl md:text-3xl font-semibold text-foreground">Music & Arts</h2>
          <p className="text-muted-foreground font-light mt-2 mb-8">
-           Where the PM goes to play.
+           A passion for technology, music, and arts.
          </p>
          
          <nav className="flex flex-row md:flex-col gap-4">
@@ -92,8 +92,8 @@
  
          <div className="mt-auto hidden md:block">
            <p className="text-xs text-muted-foreground/60 font-light">
-             Tour. Live shows. Portraits.<br />
-             Behind the scenes.
+             Music videos. Songs. Cool Movies.<br />
+             Nice books.
            </p>
          </div>
        </motion.aside>
