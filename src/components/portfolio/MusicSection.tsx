@@ -134,8 +134,8 @@ export const MusicSection = () => {
 
         <div className="mt-auto hidden md:block">
           <p className="text-xs text-muted-foreground/60 font-light">
-            Music videos. Songs. Cool Movies.<br />
-            Nice books.
+            Tech. Music. Travel. Songs.<br />
+            Arts. Design.
           </p>
         </div>
       </motion.aside>

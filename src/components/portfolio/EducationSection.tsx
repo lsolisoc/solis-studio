@@ -90,7 +90,7 @@ export const EducationSection = () => {
       >
         <h2 className="text-2xl md:text-3xl font-semibold text-foreground">Education</h2>
         <p className="text-muted-foreground font-light mt-2">
-          Engineering, Software, and Artificial Intelligence with a foundation in Sustainable Development
+          Engineering, Software, and Artificial Intelligence with a foundation in Sustainable Development.
         </p>
       </motion.div>
 
