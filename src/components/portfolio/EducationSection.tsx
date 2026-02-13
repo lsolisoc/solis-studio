@@ -24,46 +24,46 @@ const educationData: EducationItem[] = [
     id: 'cmu',
     institution: 'Carnegie Mellon University',
     program: 'M.S. Engineering & Technology Innovation Management',
-    subtitle: 'Graduate studies in technology innovation, artificial intelligence, and product management.',
+    subtitle: 'Graduate studies in product development, artificial intelligence, and innovative technology strategy',
     logo: cmuLogo,
     details: {
-      overview: 'Advanced graduate program combining engineering, business strategy, and design thinking to build innovative technology products.',
+      overview: 'Advanced graduate program focusing on product development, technology strategy, artificial intelligence to build innovative products that are customer centric.',
       keyProjects: [
-        'Gesture-driven GenAI model to create real-time music',
-        'ML model to predict hockey talent for the Pitt Penguins',
-        'Neural net to predict industrial pump behavior',
-        'Convolutional neural net to optimiza CAD',
+        'Chopin AI: Developed a gesture-driven GenAI model to create real-time classical music.',
+        'IceBreaker: Led 0-1 development of an ML model to predict hockey talent for the Pittsburgh Penguins',
+        'Grundfos Digital Twins: Built a neural network to simulate industrial pump behavior.',
+        'Ansys Discovery: Developed a convolutional neural network to optimize CAD capabilities ',
       ],
-      Selectedcoursework: 'Product Management, Human-computer Interaction, Design of AI Prodcuts, Innovation Management, Technology Entrepreneurship',
-      skills: ['Product Strategy', 'Machine Learning', 'Agile Development', 'User Research'],
+      Selectedcoursework: 'Product Management, Human-computer Interaction, Design of AI Prodcuts, Data Science, Technology Management & Entrepreneurship',
+      skills: ['Product Management', 'Artificial Intelligence', 'Technology Strategy', 'Design Thinking'],
     },
   },
   {
     id: 'tec',
     institution: 'Tec de Monterrey',
     program: 'Sustainable Development Engineering',
-    subtitle: 'Specialized in sustainable technologies, product development, and entrepreneurship.',
+    subtitle: 'BSc specialized in renewable energy systems, product development, sustainable technologies, and entrepreneurship',
     logo: tecLogo,
     details: {
-      overview: 'Engineering program focused on creating sustainable solutions through circular economy principles and clean technology innovation.',
+      overview: 'Engineering program focused on creating sustainable technology solutions through circular economy principles and clean technology innovation.',
       keyProjects: [
-        'Biofuel production from agricultural waste',
-        'Electric mobility conversion kits for reefer trucks',
-        'Circular economy product prototypes',
-        'Renewable energy systems design',
+        'Wind Turbine Optimization: Redesigned an H-Rotor wind turbine for improved performance and lower development costs.',
+        'Wastepaper Bioethanol: Co-developed a process to produce Bioethanol from paper waste.',
+        'Sustainable Pyrolisis: Concucted research to produce biofeuls from waste avocado seeds through thermal pyrolisis.',
+        'Blomex: Designed a modular construction solution based on recycled polymers.',
       ],
-      Selectedcoursework: 'Sustainable Design, Renewable Energy Systems, Circular Economy, Environmental Engineering, Project Management, Cleantech Entrepreneurship',
-      skills: ['Sustainable Design', 'Project Management', 'Systems Thinking', 'Entrepreneurship'],
+      Selectedcoursework: 'Renewable energies, systems design, project management, mathematical modeling, information systems, process engineering. ',
+      skills: ['Renewable Energy', 'Systems Design', 'Project Management', 'Sustainability', 'Entrepreneurship'],
     },
   },
   {
     id: 'thi',
     institution: 'Technische Hochschule Ingolstadt',
-    program: 'Renewable Energies',
-    subtitle: 'Focused on technical project management and led two innovation projects in renewable energies.',
+    program: 'Project Management & Renewable Energy',
+    subtitle: 'International exchange program in Germany focused on technical project management and renewable energies.',
     logo: thiLogo,
     details: {
-      overview: 'Technical program applying German engineering methodologies to renewable energy systems and sustainable infrastructure.',
+      overview: 'Yearlong program focused on developing innovative renewable energy solutions and engineering project management/strategy.',
       keyProjects: [
         'Next-gen battery storage solutions',
         'Smart grid integration for rural communities',
@@ -152,7 +152,7 @@ export const EducationSection = () => {
               <div className="space-y-6">
                 <div>
                   <h4 className="text-sm font-medium text-foreground mb-2">Overview</h4>
-                  <p className="text-sm text-muted-foreground font-light">{selectedItem.details.overview}</p>
+                  <p className="text-sm text-muted-foreground font-inter font-light">{selectedItem.details.overview}</p>  {/* ← CHANGED: Added font-inter */}
                 </div>
                 
                 <div>
@@ -161,7 +161,7 @@ export const EducationSection = () => {
                     {selectedItem.details.keyProjects.map((project, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <span className="w-1.5 h-1.5 rounded-full bg-education mt-2 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground font-light">{project}</span>
+                        <span className="text-sm text-muted-foreground font-inter font-light">{project}</span>  {/* ← CHANGED: Added font-inter */}
                       </li>
                     ))}
                   </ul>
@@ -169,7 +169,7 @@ export const EducationSection = () => {
                 
                 <div>
                   <h4 className="text-sm font-medium text-foreground mb-2">Selected Coursework</h4>
-                  <p className="text-sm text-muted-foreground font-light">{selectedItem.details.coursework}</p>
+                  <p className="text-sm text-muted-foreground font-inter font-light">{selectedItem.details.Selectedcoursework}</p>  {/* ← CHANGED: Added font-inter */}
                 </div>
               </div>
 
