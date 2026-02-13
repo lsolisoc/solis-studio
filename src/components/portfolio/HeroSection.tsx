@@ -38,7 +38,7 @@ export const HeroSection = () => {
           className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground text-center max-w-2xl leading-relaxed"
         >
           I build tech products with purpose-<br className="hidden md:block" />
-          and a customer centric obsession.
+          driven by passion, defined by impact.
         </motion.p>
       </div>
 
