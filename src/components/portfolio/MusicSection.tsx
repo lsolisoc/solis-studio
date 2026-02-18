@@ -117,8 +117,9 @@ export const MusicSection = () => {
           A passion for technology, music, and arts.
         </p>
         
+       
         <nav className="flex flex-row md:flex-col gap-4">
-          <a
+           {/*  <a
             href="#tracks"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors font-light"
           >
@@ -129,8 +130,10 @@ export const MusicSection = () => {
             className="text-sm text-muted-foreground hover:text-foreground transition-colors font-light"
           >
             Experiments
-          </a>
-        </nav>
+          </a>  */}
+
+        
+        </nav> 
 
         <div className="mt-auto hidden md:block">
           <p className="text-xs text-muted-foreground/60 font-light">
