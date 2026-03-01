@@ -27,14 +27,14 @@ const educationData: EducationItem[] = [
     subtitle: 'Graduate studies in product development, artificial intelligence, and technology strategy for engineering innovation.',
     logo: cmuLogo,
     details: {
-      overview: 'Advanced graduate program focusing on product development, technology strategy, artificial intelligence to build innovative products that are customer centric.',
+      overview: "Master's program with a focus on innovation management for high value, customer centric technology solutions",
       keyProjects: [
         'Chopin AI: Developed a gesture-driven GenAI model to create real-time classical music.',
         'IceBreaker: Led 0-1 development of an ML model to predict hockey talent for the Pittsburgh Penguins',
         'Grundfos Digital Twins: Built a neural network to simulate industrial pump behavior.',
         'Ansys Discovery: Developed a convolutional neural network to optimize CAD capabilities ',
       ],
-      Selectedcoursework: 'Product Management, Human-computer Interaction, Design of AI Prodcuts, Data Science, Technology Management & Entrepreneurship',
+      Selectedcoursework: 'Product Management, Human-Computer Interaction, Design of AI Prodcuts, Data Science, Technology Strategy & Entrepreneurship',
       skills: ['Product Management', 'Artificial Intelligence', 'Technology Strategy', 'Design Thinking'],
     },
   },
@@ -42,7 +42,7 @@ const educationData: EducationItem[] = [
     id: 'tec',
     institution: 'Tec de Monterrey',
     program: 'Sustainable Development Engineering',
-    subtitle: 'BSc specialized in renewable energy systems, product development, sustainable technologies, and entrepreneurship.',
+    subtitle: 'BSc specialized in sustainable technologies, engineering management, and entrepreneurship.',
     logo: tecLogo,
     details: {
       overview: 'Engineering program focused on creating sustainable technology solutions through circular economy principles and clean technology innovation.',

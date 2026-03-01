@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, Github, ChevronDown } from 'lucide-react';
-import meImage from '@/assets/me.jpeg';
+import meImage from '@/assets/profile2.png';
+import meImageHover from '@/assets/me.jpeg';
 
 export const HeroSection = () => {
   const scrollToNext = () => {
@@ -20,11 +21,11 @@ export const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
             Luis Solis
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl font-medium text-muted-foreground mt-1 font-sedgwick">
-            Technical Product Management & AI
+            Product Management & AI
           </p>
         </motion.div>
       </div>
@@ -54,8 +55,6 @@ export const HeroSection = () => {
           <a
             href="mailto:lsolisoc@gmail.com"
             className="flex items-center gap-3 text-base text-muted-foreground hover:text-foreground transition-colors group"
-
-
           >
             <Mail className="w-4 h-4" />
             <span className="font-normal font-sedgwick">lsolisoc@gmail.com</span>
@@ -65,8 +64,6 @@ export const HeroSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 text-base text-muted-foreground hover:text-foreground transition-colors group"
-
-
           >
             <Linkedin className="w-4 h-4" />
             <span className="font-normal font-sedgwick">@luiscarlossolis</span>
@@ -76,25 +73,28 @@ export const HeroSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 text-base text-muted-foreground hover:text-foreground transition-colors group"
-
-
           >
             <Github className="w-4 h-4" />
             <span className="font-normal font-sedgwick">@lsolisoc</span>
           </a>
         </motion.div>
 
-        {/* Portrait */}
+        {/* Portrait - Fixed with explicit sizing, z-index, and group hover */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="hidden md:block"
+          className="hidden md:block w-32 lg:w-40 h-32 lg:h-40 relative group overflow-hidden rounded-none shadow-2xl"
         >
           <img
             src={meImage}
             alt="Luis Solis"
-            className="w-48 lg:w-64 h-48 lg:h-64 object-cover rounded-none border-0 border-white/20 shadow-2xl"
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0 z-10"
+          />
+          <img
+            src={meImageHover}
+            alt="Luis Solis (hover)"
+            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"
           />
         </motion.div>
       </div>
